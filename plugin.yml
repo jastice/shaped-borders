@@ -1,0 +1,22 @@
+name: ShapedBorders
+authors: [jasticE]
+version: 0.1
+main: org.gestern.shapedborders
+
+softdepend: []
+
+commands:
+  shapedborders:
+    description: ShapedBorders commands
+    aliases: [sb]
+    usage: |
+      /sb
+    permission: shapedborders.admin
+
+permissions:
+  shapedborders.admin:
+    description: ShapedBorders admin features
+    default: op
+  shapedborders.bypass:
+    description: bypass world borders
+    default: false
