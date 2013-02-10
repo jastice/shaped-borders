@@ -1,0 +1,6 @@
+timerTicks: 5
+knockback: 3
+whooshEffect: true
+borders:
+  world:
+    ==: open
