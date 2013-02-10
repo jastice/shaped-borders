@@ -18,6 +18,12 @@ Features
 * setup border in rectangular, circle and composite shapes
 * allow border bypass for players via permissions
 
+Commands
+--------
+    /shapedborders reload
+
+Reload configuration from config.yml
+
 Configuration
 -------------
 Configuration is currently only possible via the plugin config file. A default configuration is written to the plugin directory after the first start.
@@ -47,22 +53,22 @@ Example configuration file:
         yCenter: 0
         radius: 1200
 
-      # a rectangular polygon for world "creative"
-      creative:
-        ==: composite
-        borders:
-          - 
-            ==: rectangle
-            xMin: 0
-            xMax: 500
-            zMin: -1000
-            zMax: 1000
-          -
-            ==: rectangle
-            xMin: 500
-            xMax: 1500
-            zMin: 500
-            zMax: 2000
+    # an L-shaped rectangular polygon for world "creative"
+    creative:
+      ==: composite
+      borders:
+        - 
+          ==: rectangle
+          xMin: 0
+          xMax: 500
+          zMin: -1000
+          zMax: 1000
+        -
+          ==: rectangle
+          xMin: 500
+          xMax: 1500
+          zMin: 500
+          zMax: 1000
 
 
 
