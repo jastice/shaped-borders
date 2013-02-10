@@ -1,7 +1,7 @@
 name: ShapedBorders
 authors: [jasticE]
 version: 0.1
-main: org.gestern.shapedborders
+main: org.gestern.shapedborders.ShapedBorders
 
 softdepend: []
 
