@@ -1,9 +1,9 @@
 Shaped Borders
 ==============
 
-Shaped Borders is a world border plugin based on (WorldBorder)[http://dev.bukkit.org/server-mods/worldborder/], redesigned to support additional border shapes, and easily add new ones. Currently supported border shapes are rectangular, circle, and composite. Composite shapes allow you to add multiple border shapes of any type to a world to create a single more complex border.
+Shaped Borders is a world border plugin based on [WorldBorder](http://dev.bukkit.org/server-mods/worldborder/), redesigned to support additional border shapes, and easily add new ones. Currently supported border shapes are rectangular, circle, and composite. Composite shapes allow you to add multiple border shapes of any type to a world to create a single more complex border.
 
-*Warning: ALPHA version* - not intended for production use.
+**Warning: ALPHA version** - not intended for production use.
 
 Goals
 -----
