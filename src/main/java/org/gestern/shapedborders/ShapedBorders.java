@@ -7,12 +7,17 @@ import java.util.logging.Logger;
 
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.configuration.serialization.ConfigurationSerialization;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.gestern.shapedborders.border.CircleBorder;
+import org.gestern.shapedborders.border.CompositeBorder;
+import org.gestern.shapedborders.border.OpenBorder;
+import org.gestern.shapedborders.border.RectangleBorder;
 import org.mcstats.MetricsLite;
 
 public class ShapedBorders extends JavaPlugin {
 
-	/** The Gringotts plugin instance. */
+	/** The plugin instance. */
 	public static ShapedBorders P;
 	
 	private Logger log;
@@ -25,10 +30,14 @@ public class ShapedBorders extends JavaPlugin {
     	P = this;
     	log = getLogger();
     	
+    	setupSerializables();
+    	
         // load and init configuration
         saveDefaultConfig(); // saves default configuration if no config.yml exists yet
         FileConfiguration savedConfig = getConfig();
         CONF.readConfig(savedConfig);
+        // FIXME testing code
+        saveConfig();
     	
         CommandExecutor myCommands = new Commands();
     	 
@@ -55,11 +64,25 @@ public class ShapedBorders extends JavaPlugin {
         }
     }
     
+    private void setupSerializables() {
+        ConfigurationSerialization.registerClass(RectangleBorder.class, "rectangle");
+        ConfigurationSerialization.registerClass(CircleBorder.class, "circle");
+        ConfigurationSerialization.registerClass(CompositeBorder.class, "composite");
+        ConfigurationSerialization.registerClass(OpenBorder.class, "open");
+    }
+    
+    /**
+     * Check if the border check task is running.
+     * @return
+     */
     public boolean borderTimerRunning() {
         if (borderTask == -1) return false;
         return (getServer().getScheduler().isQueued(borderTask) || getServer().getScheduler().isCurrentlyRunning(borderTask));
     }
 
+    /**
+     * Start the border check task. If it is already running, stop and restart it. 
+     */
     public void startBorderTimer() {
         stopBorderTimer();
 
@@ -72,6 +95,9 @@ public class ShapedBorders extends JavaPlugin {
         log.config("Border-checking timed task started.");
     }
 
+    /**
+     * Stop the border check task if it is running.
+     */
     public void stopBorderTimer() {
         if (borderTask == -1) return;
 

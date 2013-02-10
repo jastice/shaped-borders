@@ -1,5 +1,6 @@
 package org.gestern.shapedborders.border;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.bukkit.Location;
@@ -60,10 +61,21 @@ public class CircleBorder extends AbstractBorder {
         return safeLocation(target);
     }
 
+    @SuppressWarnings("serial")
     @Override
     public Map<String, Object> serialize() {
-        // TODO Auto-generated method stub
-        return null;
+        return new HashMap<String, Object>(5) {{
+            put("xCenter", xCenter);
+            put("zCenter", zCenter);
+            put("radius", radius);
+        }};
+    }
+    
+    public static CircleBorder deserialize(Map<String, Object> source) {
+        return new CircleBorder(
+                (Double)source.get("xCenter"), 
+                (Double)source.get("zCenter"), 
+                (Double)source.get("radius"));
     }
 
 }

@@ -1,19 +1,17 @@
 package org.gestern.shapedborders.border;
 
+import static org.gestern.shapedborders.Configuration.CONF;
+
 import java.util.HashMap;
 import java.util.Map;
 
 import org.bukkit.Location;
 
-import static org.gestern.shapedborders.Configuration.CONF;
-
 public class RectangleBorder extends AbstractBorder {
-
-    private final String world;
+    
     private final double xMin, xMax, zMin, zMax;
     
-    RectangleBorder(String world, double xMin, double xMax, double zMin, double zMax) {
-        this.world = world;
+    public RectangleBorder(double xMin, double xMax, double zMin, double zMax) {
         this.xMin = xMin;
         this.xMax = xMax;
         this.zMin = zMin;
@@ -49,7 +47,6 @@ public class RectangleBorder extends AbstractBorder {
     @Override
     public Map<String, Object> serialize() {
         return new HashMap<String,Object>() {{
-            put("world", world);
             put("xMin", xMin);
             put("xMax", xMax);
             put("zMin", zMin);
@@ -59,11 +56,9 @@ public class RectangleBorder extends AbstractBorder {
     
     public static RectangleBorder deserialize(Map<String, Object> data) {
         return new RectangleBorder(
-                (String)data.get("world"), 
                 (Double)data.get("xMin"),
                 (Double)data.get("xMax"), 
                 (Double)data.get("zMin"), 
                 (Double)data.get("zMax"));
     }
-
 }

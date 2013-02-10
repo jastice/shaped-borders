@@ -1,27 +1,30 @@
 package org.gestern.shapedborders.border;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.bukkit.Location;
 
-public class RectangularPolygonBorder extends AbstractBorder {
+/**
+ * An open border, which acts exactly like no border at all.
+ * 
+ * @author jast
+ *
+ */
+public class OpenBorder extends AbstractBorder {
 
     @Override
     public boolean inside(Location loc) {
-        // TODO Auto-generated method stub
-        return false;
+        return true;
     }
 
     @Override
     public Location reposition(Location loc) {
-        // TODO Auto-generated method stub
         return null;
     }
 
     @Override
     public Map<String, Object> serialize() {
-        // TODO Auto-generated method stub
-        return null;
+        return new HashMap<String, Object>(0);
     }
-
 }
