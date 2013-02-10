@@ -12,6 +12,7 @@ public class Util {
 
     /**
      * Find a suitable location to move, if the given location is not within the world border.
+     * World, pitch and yaw of the old location are preserved.
      * @param loc Location to check
      * @return a replacement location, or null if the location should remain unchanged.
      */
@@ -27,7 +28,12 @@ public class Util {
         // nothing to do if player within borders
         if (border.inside(loc)) return null;
         
-        return border.reposition(loc);
+        Location newLoc = border.reposition(loc);
+        newLoc.setWorld(world);
+        newLoc.setPitch(loc.getPitch());
+        newLoc.setYaw(loc.getYaw());
+        
+        return newLoc;
     }
     
     /**
