@@ -36,8 +36,6 @@ public class ShapedBorders extends JavaPlugin {
         saveDefaultConfig(); // saves default configuration if no config.yml exists yet
         FileConfiguration savedConfig = getConfig();
         CONF.readConfig(savedConfig);
-        // FIXME testing code
-        saveConfig();
     	
         CommandExecutor myCommands = new Commands();
     	 
@@ -52,6 +50,12 @@ public class ShapedBorders extends JavaPlugin {
     public void onDisable() {
         stopBorderTimer();
     }
+	
+	@Override
+	public void reloadConfig() {
+	    super.reloadConfig();
+	    CONF.readConfig(getConfig());
+	}
     
     private boolean setupMetrics() {
         try {

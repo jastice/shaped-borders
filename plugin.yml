@@ -10,7 +10,7 @@ commands:
     description: ShapedBorders commands
     aliases: [sb]
     usage: |
-      /sb
+      /shapedborders reload
     permission: shapedborders.admin
 
 permissions:
