@@ -21,6 +21,10 @@ public class CompositeBorder extends AbstractBorder {
     public CompositeBorder(Border... borders) {
         this.borders = Arrays.asList(borders);
     }
+    
+    public CompositeBorder(List<Border> borders) {
+        this.borders = borders;
+    }
 
     @Override
     public boolean inside(Location loc) {
@@ -39,8 +43,7 @@ public class CompositeBorder extends AbstractBorder {
             double bLocDist = bLoc.distanceSquared(loc);
             if (newLoc==null || bLocDist < dSquared) {
                 newLoc = bLoc;
-                dSquared = bLocDist;
-            }
+                dSquared = bLocDist;            }
         }
         return newLoc;
     }
@@ -51,5 +54,10 @@ public class CompositeBorder extends AbstractBorder {
         return new HashMap<String, Object>(borders.size()) {{
             put("borders", borders);
         }};
+    }
+    
+    @SuppressWarnings("unchecked")
+    public static CompositeBorder deserialize(Map<String,Object> source) {
+        return new CompositeBorder((List<Border>)source.get("borders"));
     }
 }

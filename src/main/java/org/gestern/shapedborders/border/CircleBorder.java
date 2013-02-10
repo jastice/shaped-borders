@@ -6,6 +6,7 @@ import java.util.Map;
 import org.bukkit.Location;
 
 import static org.gestern.shapedborders.Configuration.CONF;
+import static org.gestern.shapedborders.Util.*;
 
 /**
  * Represents a circle shaped  world border.
@@ -33,8 +34,8 @@ public class CircleBorder extends AbstractBorder {
         double zLoc = loc.getZ();
         
         // elegant round border checking algorithm is from rBorder by Reil with almost no changes, all credit to him for it
-        double x = Math.abs(xLoc - xLoc);
-        double z = Math.abs(zLoc - zLoc);
+        double x = Math.abs(xCenter - xLoc);
+        double z = Math.abs(zCenter - zLoc);
 
         if (x < definiteSquare && z < definiteSquare)
             return true;    // Definitely inside
@@ -73,9 +74,9 @@ public class CircleBorder extends AbstractBorder {
     
     public static CircleBorder deserialize(Map<String, Object> source) {
         return new CircleBorder(
-                (Double)source.get("xCenter"), 
-                (Double)source.get("zCenter"), 
-                (Double)source.get("radius"));
+                asDouble(source.get("xCenter")), 
+                asDouble(source.get("zCenter")), 
+                asDouble(source.get("radius")) );
     }
 
 }

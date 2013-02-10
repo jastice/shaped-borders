@@ -1,6 +1,7 @@
 package org.gestern.shapedborders.border;
 
 import static org.gestern.shapedborders.Configuration.CONF;
+import static org.gestern.shapedborders.Util.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -56,9 +57,9 @@ public class RectangleBorder extends AbstractBorder {
     
     public static RectangleBorder deserialize(Map<String, Object> data) {
         return new RectangleBorder(
-                (Double)data.get("xMin"),
-                (Double)data.get("xMax"), 
-                (Double)data.get("zMin"), 
-                (Double)data.get("zMax"));
+                asDouble(data.get("xMin")),
+                asDouble(data.get("xMax")), 
+                asDouble(data.get("zMin")), 
+                asDouble(data.get("zMax")) );
     }
 }

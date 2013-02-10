@@ -47,4 +47,21 @@ public class Util {
             chunk.load();
         ent.teleport(loc);
     }
+    
+    /**
+     * Convert an object into a double, if possible. Accepted types are Integer, Double, String.
+     * If no conversion was possible, return 0.
+     * @param number double representation of given object, or 0 if there is none.
+     * @return
+     */
+    public static double asDouble(Object number) {
+        if (number instanceof Integer)
+            return (Integer)number; // autoboxing conversion thingy yay
+        if (number instanceof Double)
+            return (Double)number;
+        if (number instanceof String)
+            return Double.parseDouble((String)number);
+        
+        return 0;
+    }
 }
