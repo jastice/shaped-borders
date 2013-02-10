@@ -4,3 +4,39 @@ whooshEffect: true
 borders:
   world:
     ==: open
+
+
+# example setup:
+
+# # world border setup
+# borders:
+#   # the main world is a small rectangle
+#   world:
+#     ==: rectangle
+#     xMin: -50.0
+#     xMax: 50.0
+#     zMin: -100.0
+#     zMax: 200.0
+#   # the nether is limited by a circle with the redius of 1200
+#   world_nether:
+#     ==: circle
+#     xCenter: 0
+#     yCenter: 0
+#     radius: 1200
+
+#   # an L-shaped rectangular polygon for world "creative"
+#   creative:
+#     ==: composite
+#     borders:
+#       - 
+#         ==: rectangle
+#         xMin: 0
+#         xMax: 500
+#         zMin: -1000
+#         zMax: 1000
+#       -
+#         ==: rectangle
+#         xMin: 500
+#         xMax: 1500
+#         zMin: 500
+#         zMax: 1000
