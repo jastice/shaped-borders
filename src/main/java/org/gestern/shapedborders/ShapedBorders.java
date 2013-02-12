@@ -12,6 +12,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.gestern.shapedborders.border.CircleBorder;
 import org.gestern.shapedborders.border.CompositeBorder;
 import org.gestern.shapedborders.border.OpenBorder;
+import org.gestern.shapedborders.border.PolygonBorder;
 import org.gestern.shapedborders.border.RectangleBorder;
 import org.mcstats.MetricsLite;
 
@@ -73,6 +74,7 @@ public class ShapedBorders extends JavaPlugin {
         ConfigurationSerialization.registerClass(CircleBorder.class, "circle");
         ConfigurationSerialization.registerClass(CompositeBorder.class, "composite");
         ConfigurationSerialization.registerClass(OpenBorder.class, "open");
+        ConfigurationSerialization.registerClass(PolygonBorder.class, "polygon");
     }
     
     /**

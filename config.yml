@@ -23,7 +23,17 @@ borders:
 #     xCenter: 0
 #     yCenter: 0
 #     radius: 1200
-
+#
+#   # polygons are given by a list of pairs of x/z coordinates
+#   # this is a simple triangle
+#   extra1:
+#     ==: polygon
+#     points:
+#       - [-100,-100]
+#       - [100,-100]
+#       - [-100,100]
+#
+#   # composite borders can ba made up of several individual border types
 #   # an L-shaped rectangular polygon for world "creative"
 #   creative:
 #     ==: composite
