@@ -39,10 +39,7 @@ public class CircleBorder extends AbstractBorder {
 
         if (x < definiteSquare && z < definiteSquare)
             return true;    // Definitely inside
-        else if (x >= radius || z >= radius)
-            return false;   // Definitely outside
-        else  
-            return (x * x + z * z < radiusSquared); // goold old hypothenuse
+        else return (x * x + z * z < radiusSquared); // goold old hypothenuse
     }
 
     @Override
